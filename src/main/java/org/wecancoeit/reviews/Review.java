@@ -6,17 +6,31 @@ public class Review {
     private String imageUrl;
     private String reviewCategory;
 
-    public Long getId() {
-        return id;
-    }
     public Review(long id, String title, String imageUrl, String reviewCategory) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
         this.reviewCategory = reviewCategory;
     }
-    public Review(){
 
+    public Review() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public String getReviewCategory() {
+        return reviewCategory;
     }
 
 }
