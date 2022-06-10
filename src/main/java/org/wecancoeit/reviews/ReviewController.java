@@ -20,7 +20,11 @@ public class ReviewController {
     }
 
     @RequestMapping("/review")
-    public String findOneReview(@RequestParam(value = "id") Long id, Model model) {
+    public String findOneReview(@RequestParam(value = "id") Long id, Model model) throws ReviewNotFoundException {
+
+        if (reviewRepo.findOne(id) == null) {
+            throw new ReviewNotFoundException();
+        }
         model.addAttribute("reviewModel", reviewRepo.findOne(id));
         return "reviewTemplate";
     }

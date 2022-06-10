@@ -24,10 +24,14 @@ public class ReviewControllerMvcTest {
     private ReviewRepository reviewRepo;
 
     @Mock
-    private Review reviewOne;
+    private Review reviewOne = new Review(1L, "Monster Truck",
+            "src/main/resources/static/images/E-Revo VXL 2.jpg",
+            "Monster Truck");
 
     @Mock
-    private Review reviewTwo;
+    private Review reviewTwo = new Review(2L, "Micro Crawler",
+            "src/main/resources/static/images/B-17 Betty.jpg",
+            "Micro Crawler");
 
     @Test
     public void shouldBeOkForAllReviewsInTheReviewsTemplate() throws Exception {
@@ -45,6 +49,8 @@ public class ReviewControllerMvcTest {
 
     @Test
     public void shouldBeOkOneReviewInTheReviewTemplate() throws Exception {
+        Long reviewOneId = 1L;
+        when(reviewRepo.findOne(reviewOneId)).thenReturn(reviewOne);
         mockMvc.perform(get("/review?id=1")).andExpect(status().isOk())
                 .andExpect(view().name("reviewTemplate"));
     }
@@ -56,4 +62,12 @@ public class ReviewControllerMvcTest {
         mockMvc.perform(get("/review?id=1"))
                 .andExpect(model().attribute("reviewModel", reviewOne));
     }
+
+    @Test
+    public void shouldBeNotFoundForRequestNotInModel() throws Exception {
+        Long reviewTwoId = 2L;
+        when(reviewRepo.findOne(reviewTwoId)).thenReturn(reviewTwo);
+        mockMvc.perform(get("/review?id=3")).andExpect(status().isNotFound());
+    }
+
 }
