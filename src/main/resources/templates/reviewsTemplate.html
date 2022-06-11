@@ -18,6 +18,8 @@
 
         <li th:each="review: ${reviewsModel}"><a class="product" th:href="@{/review(id=${review.id})}"
                                                  th:text="${review.title}"></a></li>
+
+
     </ul>
 
 </main>

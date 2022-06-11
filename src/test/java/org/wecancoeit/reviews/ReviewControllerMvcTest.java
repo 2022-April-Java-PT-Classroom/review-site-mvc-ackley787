@@ -24,14 +24,15 @@ public class ReviewControllerMvcTest {
     private ReviewRepository reviewRepo;
 
     @Mock
-    private Review reviewOne = new Review(1L, "Monster Truck",
+    private Review reviewOne = new Review(1L, "Traxxas E-Revo VXL",
             "src/main/resources/static/images/E-Revo VXL 2.jpg",
-            "Monster Truck");
+            "Electric Monster Truck",
+            "1/10 scale Monster Truck that is 4 wheel drive and powered by a electric brushless motor capable of handling 6s power.");
 
     @Mock
-    private Review reviewTwo = new Review(2L, "Micro Crawler",
+    private Review reviewTwo = new Review(2L, "Axial Scx24 Limited Edition B-17 Betty",
             "src/main/resources/static/images/B-17 Betty.jpg",
-            "Micro Crawler");
+            "Micro Crawler", "1/24 scale crawler that is 4wd and is powered by 88t brushed motor. It is capable to crawl indoors or outside.");
 
     @Test
     public void shouldBeOkForAllReviewsInTheReviewsTemplate() throws Exception {

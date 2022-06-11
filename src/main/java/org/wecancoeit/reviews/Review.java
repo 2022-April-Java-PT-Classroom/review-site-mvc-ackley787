@@ -5,12 +5,14 @@ public class Review {
     private String title;
     private String imageUrl;
     private String reviewCategory;
+    private String description;
 
-    public Review(long id, String title, String imageUrl, String reviewCategory) {
+    public Review(long id, String title, String imageUrl, String reviewCategory, String description) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
         this.reviewCategory = reviewCategory;
+        this.description = description;
     }
 
     public Review() {
@@ -31,6 +33,10 @@ public class Review {
 
     public String getReviewCategory() {
         return reviewCategory;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
 }

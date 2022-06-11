@@ -1,10 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="" rel="stylesheet">
     <title th:text="${reviewModel.title}"></title>
 </head>
 <body>
@@ -15,9 +12,17 @@
 
 <main>
     <ul>
-        <p><a href="/review">Reviews</a></p>
-        <li th:each="review: ${reviewModel}"><a class="product" th:href="@{/review(id=${review.id})}"
-                                                th:text="${review.title}"></a></li>
+
+        <li th:text="${reviewModel.title}"></li>
+
+        <li th:text="${reviewModel.reviewCategory}"></li>
+
+        <img th:src="${reviewModel.imageUrl}"></img>
+
+
+        <li th:text="${reviewModel.description}"></li>
+
+        <p><a href="/reviews">Go Back</a></p>
     </ul>
 
 </main>
