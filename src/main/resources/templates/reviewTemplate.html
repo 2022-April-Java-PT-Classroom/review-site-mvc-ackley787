@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymleaf.org">
 <head>
-    <link href="" rel="stylesheet">
+    <link href="/styles/reviewsStyle.css" rel="stylesheet">
     <title th:text="${reviewModel.title}"></title>
 </head>
 <body>
@@ -11,23 +11,24 @@
 </header>
 
 <main>
-    <ul>
+    <container class="reviews">
+        <ul>
 
-        <li th:text="${reviewModel.title}"></li>
+            <li th:text="${reviewModel.title}"></li>
 
-        <li th:text="${reviewModel.reviewCategory}"></li>
+            <li th:text="${reviewModel.reviewCategory}"></li>
 
-        <img th:src="${reviewModel.imageUrl}"></img>
+            <img th:src="${reviewModel.imageUrl}"></img>
 
 
-        <li th:text="${reviewModel.description}"></li>
+            <li th:text="${reviewModel.description}"></li>
 
-        <p><a href="/reviews">Go Back</a></p>
-    </ul>
-
+            <p><a href="/reviews">Go Back</a></p>
+        </ul>
+    </container>
 </main>
 </body>
 <footer>
-    <small>&copy AA 2022</small>
+    <span>&copy AA 2022</span>
 </footer>
 </html>

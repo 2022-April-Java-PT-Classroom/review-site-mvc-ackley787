@@ -1,10 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="/styles/reviewsStyle.css" rel="stylesheet">
     <title>A List of All Available Reviews</title>
 </head>
 <body>
@@ -14,17 +11,19 @@
 </header>
 
 <main>
-    <ul>
+    <container class="reviews">
+        <ul>
 
-        <li th:each="review: ${reviewsModel}"><a class="product" th:href="@{/review(id=${review.id})}"
-                                                 th:text="${review.title}"></a></li>
+            <li th:each="review: ${reviewsModel}"><a class="reviews" th:href="@{/review(id=${review.id})}"
+                                                     th:text="${review.title}"></a></li>
 
-
-    </ul>
+        </ul>
+    </container>
 
 </main>
 </body>
-<footer>
-    <small>&copy AA 2022</small>
-</footer>
+
 </html>
+<footer>
+    <span>&copy AA 2022</span>
+</footer>
